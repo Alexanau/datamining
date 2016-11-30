@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+'''
+preformance mesures computed:
+accuracy
+ROC
+F-mesure
+Precision
+Recal
+confusion matrix
+
+'''
+print('Loading modules...  ',end='',flush=True)
+from sys import argv
+import numpy as np
+
+import sklearn.preprocessing as pp
+from sklearn.model_selection import train_test_split
+from sklearn.utils import shuffle
+print('Done!')
+
+if len(argv) < 2:
+    print('Error no file given')
+    exit(1)
+
+def splitData(data,ratio=.8):
+    split_idx = int(data.shape[0] * ratio)
+    scaler = pp.MinMaxScaler()
+    train_rows = data[:split_idx,:]
+    test_rows = data[split_idx:,:]
+    train = Pair(train_rows[:,0:11],train_rows[:,12])
+    test = Pair(test_rows[:,0:11],test_rows[:,12])    
+    train.x = scaler.fit_transform(train.x)
+    test.x = scaler.transform(test.x)
+    return train,test
+
+def strParams(params):
+    res = []
+    for k in params:
+        res.append(k+': '+str(params[k]))
+    return '\n  '.join(res)
+
+print('Loading data from %s...  ' % argv[1],end='',flush=True)
+data = np.loadtxt(argv[1],delimiter=',', skiprows=1,
+                  converters={13: lambda s:float(s == b'"High"'),
+                              0:  lambda s:float(s.strip(b'"'))})
+
+
+print(train_test_split(data)
+
+#np.savetxt(argv[2],train

@@ -1,0 +1,129 @@
+Loading modules...  Done!
+Loading data from winequality-white.csv...  Done!
+
+GaussianNB
+             precision    recall  f1-score   support
+
+      False       0.54      0.56      0.55       324
+       True       0.78      0.77      0.77       656
+
+avg / total       0.70      0.70      0.70       980
+
+####################################################
+MLPClassifier
+             precision    recall  f1-score   support
+
+      False       0.74      0.13      0.22       324
+       True       0.69      0.98      0.81       656
+
+avg / total       0.71      0.70      0.62       980
+
+####################################################
+LogisticRegression
+             precision    recall  f1-score   support
+
+      False       0.69      0.48      0.57       324
+       True       0.78      0.89      0.83       656
+
+avg / total       0.75      0.76      0.74       980
+
+####################################################
+PassiveAggressiveClassifier
+             precision    recall  f1-score   support
+
+      False       0.67      0.09      0.15       324
+       True       0.68      0.98      0.81       656
+
+avg / total       0.68      0.68      0.59       980
+
+####################################################
+RidgeClassifier
+             precision    recall  f1-score   support
+
+      False       0.68      0.45      0.54       324
+       True       0.77      0.89      0.83       656
+
+avg / total       0.74      0.75      0.73       980
+
+####################################################
+SGDClassifier
+             precision    recall  f1-score   support
+
+      False       0.00      0.00      0.00       324
+       True       0.67      1.00      0.80       656
+
+avg / total       0.45      0.67      0.54       980
+
+####################################################
+AdaBoostClassifier
+             precision    recall  f1-score   support
+
+      False       0.66      0.58      0.62       324
+       True       0.80      0.85      0.83       656
+
+avg / total       0.76      0.76      0.76       980
+
+####################################################
+BaggingClassifier
+             precision    recall  f1-score   support
+
+      False       0.67      0.73      0.70       324
+       True       0.86      0.82      0.84       656
+
+avg / total       0.80      0.79      0.79       980
+
+####################################################
+ExtraTreesClassifier
+             precision    recall  f1-score   support
+
+      False       0.73      0.76      0.74       324
+       True       0.88      0.86      0.87       656
+
+avg / total       0.83      0.83      0.83       980
+
+####################################################
+GradientBoostingClassifier
+             precision    recall  f1-score   support
+
+      False       0.68      0.61      0.64       324
+       True       0.82      0.86      0.84       656
+
+avg / total       0.77      0.77      0.77       980
+
+####################################################
+RandomForestClassifier
+             precision    recall  f1-score   support
+
+      False       0.69      0.71      0.70       324
+       True       0.85      0.84      0.85       656
+
+avg / total       0.80      0.80      0.80       980
+
+####################################################
+KNeighborsClassifier
+             precision    recall  f1-score   support
+
+      False       0.51      0.44      0.47       324
+       True       0.74      0.79      0.76       656
+
+avg / total       0.66      0.67      0.67       980
+
+####################################################
+NearestCentroid
+             precision    recall  f1-score   support
+
+      False       0.42      0.57      0.48       324
+       True       0.74      0.60      0.66       656
+
+avg / total       0.63      0.59      0.60       980
+
+####################################################
+SVC
+             precision    recall  f1-score   support
+
+      False       0.60      0.44      0.51       324
+       True       0.76      0.86      0.80       656
+
+avg / total       0.71      0.72      0.71       980
+
+####################################################

@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+print('Loading modules...  ',end='',flush=True)
+from sys import argv
+import numpy as np
+import sklearn.preprocessing as pp
+import matplotlib.pyplot as plt
+import csv
+class Pair(object):
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+print('Done!')        
+
+keep = slice(1,-1)
+if len(argv) < 2:
+    print('Error no file given')
+    exit(1)
+atributes = None
+with open(argv[1],'r') as f:
+    reader = csv.reader(f,delimiter=',')
+    atributes = next(reader)[keep]
+    
+print('Loading data from %s...  ' % argv[1],end='',flush=True)
+raw_data = np.loadtxt(argv[1],delimiter=',', skiprows=1,
+                      usecols=(0,1,2,3,4,5,6,7,8,9,10,11,12,13),
+                      converters={13: lambda s:float(s == b'"High"'),
+                                  0:  lambda s:float(s.strip(b'"'))})
+normalizer = pp.MinMaxScaler()
+data = normalizer.fit_transform(raw_data[:,keep])
+high = data[raw_data[:,-1] == 1]
+low  = data[raw_data[:,-1] == 0]
+print('Done!')
+
+for i,atribute in enumerate(atributes):
+    print('making histogram for '+atribute+'...',end='',flush=True)
+    plt.cla()
+    plt.title(atribute)
+    plt.hist(data[:,i],label='all',color='black')
+    plt.hist(high[:,i],label='High',color='blue')
+    plt.hist(low[:,i],label='low',color='red',alpha=.5)
+    plt.savefig(argv[1]+'_'+atribute+'_histogram.png')
+    print('Done!')

@@ -1,0 +1,9 @@
+Loading modules...  Done!
+Loading data from train_test.npz...  Done!
+
+Making models...Done!
+classifier: AdaBoostClassifier
+params: {'learning_rate': 1.0, 'random_state': None, 'algorithm': 'SAMME.R', 'base_estimator': None, 'n_estimators': 50}
+test set score: 0.745
+#########
+classifier: MLPClassifier

@@ -1,0 +1,62 @@
+majority class: 0.648979591837
+naive bayes: 0.714540816327
+knn          k=  1 p=  2: 0.795408163265
+knn distance k=  1 p=  2: 0.806632653061
+knn          k=  6 p=  2: 0.750765306122
+knn distance k=  6 p=  2: 0.817346938776
+knn          k= 11 p=  2: 0.756887755102
+knn distance k= 11 p=  2: 0.829336734694
+knn          k= 16 p=  2: 0.769387755102
+knn distance k= 16 p=  2: 0.825510204082
+knn          k= 21 p=  2: 0.763775510204
+knn distance k= 21 p=  2: 0.833418367347
+knn          k= 26 p=  2: 0.770918367347
+knn distance k= 26 p=  2: 0.833163265306
+knn          k= 31 p=  2: 0.765051020408
+knn distance k= 31 p=  2: 0.830357142857
+knn          k= 36 p=  2: 0.759948979592
+knn distance k= 36 p=  2: 0.823724489796
+knn          k= 41 p=  2: 0.754336734694
+knn distance k= 41 p=  2: 0.832397959184
+knn          k= 46 p=  2: 0.767091836735
+knn distance k= 46 p=  2: 0.833928571429
+knn          k=  1 p=  3: 0.794642857143
+knn distance k=  1 p=  3: 0.807908163265
+knn          k=  6 p=  3: 0.773469387755
+knn distance k=  6 p=  3: 0.813010204082
+knn          k= 11 p=  3: 0.762244897959
+knn distance k= 11 p=  3: 0.823214285714
+knn          k= 16 p=  3: 0.757653061224
+knn distance k= 16 p=  3: 0.822704081633
+knn          k= 21 p=  3: 0.745918367347
+knn distance k= 21 p=  3: 0.819132653061
+knn          k= 26 p=  3: 0.764540816327
+knn distance k= 26 p=  3: 0.829846938776
+knn          k= 31 p=  3: 0.75637755102
+knn distance k= 31 p=  3: 0.820663265306
+knn          k= 36 p=  3: 0.755102040816
+knn distance k= 36 p=  3: 0.830357142857
+knn          k= 41 p=  3: 0.760969387755
+knn distance k= 41 p=  3: 0.814795918367
+knn          k= 46 p=  3: 0.754336734694
+knn distance k= 46 p=  3: 0.82193877551
+knn          k=  1 p=  4: 0.801530612245
+knn distance k=  1 p=  4: 0.789540816327
+knn          k=  6 p=  4: 0.752040816327
+knn distance k=  6 p=  4: 0.827295918367
+knn          k= 11 p=  4: 0.762755102041
+knn distance k= 11 p=  4: 0.824489795918
+knn          k= 16 p=  4: 0.760714285714
+knn distance k= 16 p=  4: 0.828571428571
+knn          k= 21 p=  4: 0.755102040816
+knn distance k= 21 p=  4: 0.82806122449
+knn          k= 26 p=  4: 0.747959183673
+knn distance k= 26 p=  4: 0.825510204082
+knn          k= 31 p=  4: 0.761989795918
+knn distance k= 31 p=  4: 0.83137755102
+knn          k= 36 p=  4: 0.767602040816
+knn distance k= 36 p=  4: 0.815306122449
+knn          k= 41 p=  4: 0.754081632653
+knn distance k= 41 p=  4: 0.812244897959
+knn          k= 46 p=  4: 0.75612244898
+knn distance k= 46 p=  4: 0.833163265306

@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+'''
+preformance mesures computed:
+accuracy
+ROC
+F-mesure
+Precision
+Recal
+confusion matrix
+
+'''
+print('Loading modules...  ',end='',flush=True)
+from sys import argv
+import numpy as np
+import sklearn.preprocessing as pp
+from sklearn.model_selection import cross_val_score as cvs
+from sklearn.utils import shuffle
+from sklearn.neural_network import MLPClassifier,MLPRegressor
+from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import LogisticRegression, PassiveAggressiveClassifier, RidgeClassifier
+from sklearn.linear_model import SGDClassifier
+from sklearn.ensemble import AdaBoostClassifier, BaggingClassifier, ExtraTreesClassifier
+from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier, VotingClassifier
+from sklearn.neighbors import KNeighborsClassifier, RadiusNeighborsClassifier, NearestCentroid
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier, ExtraTreeClassifier
+import sklearn.metrics as metrics
+
+class Pair(object):
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+
+print('Done!')
+
+if len(argv) < 2:
+    print('Error no file given')
+    exit(1)
+
+def splitData(data,ratio=.8):
+    split_idx = int(data.shape[0] * ratio)
+
+    train_rows = data[:split_idx,:]
+    test_rows = data[split_idx:,:]
+    train = Pair(train_rows[:,0:11],train_rows[:,12])
+    test = Pair(test_rows[:,0:11],test_rows[:,12])    
+
+    
+    return train,test
+
+def strParams(params):
+    res = []
+    for k in params:
+        res.append(k+': '+str(params[k]))
+    return '\n  '.join(res)
+
+print('Loading data from %s...  ' % argv[1],end='',flush=True)
+data = np.load(argv[1])
+print('Done!\n')
+train = Pair(data['train'][:,1:12], data['train'][:,13])
+test = Pair(data['test'][:,1:12], data['test'][:,13])
+
+# pre-proccessing 
+scaler = pp.MinMaxScaler()
+train.x = scaler.fit_transform(train.x)
+test.x = scaler.transform(test.x)
+
+
+
+
+
+
+'''
+missing models:
+Voting
+svm's
+RadiusNeighborsClassifier
+'''
+
+models = [GaussianNB(),MLPClassifier(hidden_layer_sizes=(100,100)),LogisticRegression(),PassiveAggressiveClassifier(),
+          RidgeClassifier(),SGDClassifier(),AdaBoostClassifier(), BaggingClassifier(),
+          ExtraTreesClassifier(), GradientBoostingClassifier(), RandomForestClassifier(),
+          KNeighborsClassifier(), NearestCentroid(), SVC(),DecisionTreeClassifier(),
+          ExtraTreeClassifier()]
+
+models = [GaussianNB()]
+best_c = MLPClassifier()
+best_hls = (100,)
+i =0
+for num_lay in range(1,5):
+    for layer_size in range(100,501,100):
+        print(i)
+        hls = (layer_size,)*num_lay
+        c=MLPClassifier(hidden_layer_sizes=hls,max_iter=500)
+        i+=1
+        if np.mean(cvs(c,train.x,train.y)) > np.mean(cvs(best_c,train.x,train.y)):
+            best_c = c
+            best_hls = hls
+print(c.get_params())
+exit(0)
+    
+for act in ['identity', 'logistic', 'tanh', 'relu']:
+    for  solver in ['lbfgs','sgd','adam']:
+        for lr in ['constant','invscaling','adaptive']:
+            for max_iter in range(200,401,50):
+                pass
+
+
+
+
+
+for classifer in models:
+    classifer.fit(train.x,train.y)
+    pred = classifer.predict(test.x)
+    print(type(classifer).__name__ + ':')
+    print('  '+strParams(classifer.get_params()))
+    print(metrics.classification_report(test.y,pred))
+    print('#'*52)
+    
+exit(0)
+
+
